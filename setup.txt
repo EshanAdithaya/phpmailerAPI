@@ -1,0 +1,5 @@
+ $this->mailer->Host = $config['smtp.gmail.com'];
+        $this->mailer->SMTPAuth = $config['true'];
+        $this->mailer->Username = $config['crystesoftware@gmail.com'];
+        $this->mailer->Password = $config['nqro pynm rurp wmyu'];
+        $this->mailer->Port = $config['587']; // Adjust if needed

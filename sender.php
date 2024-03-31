@@ -1,6 +1,6 @@
 <?php
 
-namespace MyProject; // Replace with your namespace
+namespace MyProject; // Replace with your actual namespace
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -15,25 +15,24 @@ class EmailSender {
     }
 
     private function configureMailer($config) {
-        // SMTP Configuration (unchanged)
+        // SMTP Configuration
         $this->mailer->isSMTP();
         $this->mailer->Host = $config['smtp.gmail.com'];
         $this->mailer->SMTPAuth = $config['true'];
         $this->mailer->Username = $config['crystesoftware@gmail.com'];
         $this->mailer->Password = $config['nqro pynm rurp wmyu'];
-        $this->mailer->Port = $config['587']; // Adjust if needed
+        $this->mailer->Port = $config['587'];
 
-        // Email Settings (unchanged)
-        $this->mailer->setFrom($config['crystesoftware@gmail.com'], $config['Eshan Adithaya Gunathilaka']);
-        // edit addReplyTo($config['crystesoftware@gmail.com'] and $config['test Eshan Adithaya Gunathilaka']);
-        $this->mailer->addReplyTo($config['crystesoftware@gmail.com'], $config['test Eshan Adithaya Gunathilaka']);
+        // Email Settings
+        $this->mailer->setFrom($config['from_email'], $config['from_name']);
+        $this->mailer->addReplyTo($config['reply_to_email'], $config['reply_to_name']);
     }
 
     public function sendEmail($to, $subject, $body, $websiteName = null, $requestType = null, $additionalData = []) {
         $this->mailer->addAddress($to);
         $this->mailer->Subject = $subject;
 
-        // **Customize body based on websiteName, requestType, and additionalData (optional):**
+        // Customize body based on websiteName, requestType, and additionalData
         $customizedBody = $body;
         if ($websiteName && $requestType) {
             // Implement logic to modify the body based on website and request type

@@ -20,12 +20,12 @@ if (isset($data['to'], $data['subject'], $data['body'], $data['websiteName'], $d
         $additionalData = $data['additionalData'];
     }
 
+    // Pass websiteName to sendEmail method
     $success = $sender->sendEmail(
         $data['to'],
         $data['subject'],
         $data['body'],
-        // Optionally use websiteName and requestType to customize email content
-        $websiteName,
+        $data['websiteName'], // Use $data['websiteName'] instead of $websiteName
         $data['requestType'],
         $additionalData
     );
