@@ -17,15 +17,16 @@ class EmailSender {
     private function configureMailer($config) {
         // SMTP Configuration (unchanged)
         $this->mailer->isSMTP();
-        $this->mailer->Host = $config['smtp_host'];
-        $this->mailer->SMTPAuth = $config['smtp_auth'];
-        $this->mailer->Username = $config['smtp_username'];
-        $this->mailer->Password = $config['smtp_password'];
-        $this->mailer->Port = $config['smtp_port']; // Adjust if needed
+        $this->mailer->Host = $config['smtp.gmail.com'];
+        $this->mailer->SMTPAuth = $config['true'];
+        $this->mailer->Username = $config['crystesoftware@gmail.com'];
+        $this->mailer->Password = $config['nqro pynm rurp wmyu'];
+        $this->mailer->Port = $config['587']; // Adjust if needed
 
         // Email Settings (unchanged)
-        $this->mailer->setFrom($config['from_email'], $config['from_name']);
-        $this->mailer->addReplyTo($config['reply_to_email'], $config['reply_to_name']);
+        $this->mailer->setFrom($config['crystesoftware@gmail.com'], $config['Eshan Adithaya Gunathilaka']);
+        // edit addReplyTo($config['crystesoftware@gmail.com'] and $config['test Eshan Adithaya Gunathilaka']);
+        $this->mailer->addReplyTo($config['crystesoftware@gmail.com'], $config['test Eshan Adithaya Gunathilaka']);
     }
 
     public function sendEmail($to, $subject, $body, $websiteName = null, $requestType = null, $additionalData = []) {
