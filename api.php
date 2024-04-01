@@ -3,6 +3,11 @@
 require_once('vendor/autoload.php'); // Assuming Composer autoload
 require_once('sender.php'); // Include the EmailSender class
 
+
+header("Access-Control-Allow-Origin: http://localhost");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
+
 use MyProject\EmailSender;
 
 header('Content-Type: application/json');
