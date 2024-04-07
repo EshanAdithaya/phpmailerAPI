@@ -28,7 +28,7 @@ class EmailSender {
         $this->mailer->addReplyTo($config['reply_to_email'], $config['reply_to_name']);
     }
 
-    public function sendEmail($to, $subject, $body, $websiteName = null, $requestType = null, $additionalData = []) {
+    public function sendEmail($to, $subject, $body, $websiteName = null, $requestType = null, $additionalData = null) {
         $this->mailer->addAddress($to);
         $this->mailer->Subject = $subject;
 
